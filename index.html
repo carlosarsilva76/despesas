@@ -176,9 +176,10 @@
 
   /* ── CONTENT ── */
   .content {
-    flex: 1; overflow-y: auto; overflow-x: hidden;
+    flex: 1; overflow-y: scroll; overflow-x: hidden;
     order: 2;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
     padding: 16px;
     padding-bottom: 20px;
   }
@@ -188,7 +189,7 @@
   }
 
   /* ── PANELS ── */
-  .panel { display: none; animation: fadeIn 0.25s ease; }
+  .panel { display: none; animation: fadeIn 0.25s ease; touch-action: pan-y; }
   .panel.active { display: block; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 
@@ -1350,7 +1351,7 @@
                 <textarea id="aNotas" rows="2" placeholder="Notas adicionais..." style="resize:vertical;"></textarea>
               </div>
             </div>
-            <div style="position:sticky;bottom:0;background:var(--surface);padding:12px 0 4px;display:flex;gap:10px;margin-top:8px;z-index:10;">
+            <div style="display:flex;gap:10px;margin-top:12px;">
               <button class="btn btn-primary" style="flex:1;" onclick="guardarArquivo()">💾 Guardar</button>
               <button class="btn btn-secondary" style="flex:1;" onclick="toggleArquivoForm()">✕ Cancelar</button>
             </div>
